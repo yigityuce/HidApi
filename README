@@ -1,0 +1,16 @@
+
+
+ --------------------------------------------------------------------------------------------------------------------------
+ * DEPENDENCIES
+ --------------------------------------------------------------------------------------------------------------------------
+    Common:
+        1) "-std=c++0x" compiler dialect
+
+    Windows:
+        1) "-lsetupapi" linker flag
+        2) "-static-libgcc -static-libstdc++" linker flags when you use minGw compiler
+
+    Linux:
+        1) "-ludev" linker flag
+        2) "-lpthread" linker flag
+
