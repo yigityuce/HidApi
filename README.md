@@ -8,7 +8,7 @@ It determines your operating system automatically and generates codes according 
 
 ----------
 
-### **Classes and Hierarchies **
+### **Classes and Hierarchies**
 
 - HidError
 - HidApi
@@ -18,14 +18,14 @@ It determines your operating system automatically and generates codes according 
 - HidDeviceList
 
 ----------
-#### **HidError ** class
+#### **HidError** class
 HidError class is a container for errors which occur run time. It can be handled in error callback functions. It has got these functions:
 
 - getErrorCode()
 - getErrorString()
 
 ----------
-#### **HidApi ** class
+#### **HidApi** class
 HidApi class should be instantiated once in whole program (maybe this can be turned into singleton later versions). It can be used for scan HIDs and register callbacks. It runs a backgroud operation also to recognize the devices which are plugged or unplugged. This operation is managed by HidApi class and users are not responsible for managing it. It has got these functions:
 
 - scanDevices()
@@ -37,11 +37,11 @@ HidApi class should be instantiated once in whole program (maybe this can be tur
 - registerDeviceErrorCallback()
 
 ----------
-#### **HidDeviceMonitoringThread ** class
+#### **HidDeviceMonitoringThread** class
 HidDeviceMonitoringThread is a class which executes a background operation to recognize the devices which are plugged or unplugged. This operation is managed by HidApi class and users are not responsible for managing it. Its behaviour is different on Windows and Linux.
 
 ----------
-#### **HidDevice ** class
+#### **HidDevice** class
 HidDevice class is the interface for interacting with HIDs. Users should not instantiate an object from this class. Because it instantiates with empty values and this is meaningless. HidDevice class objects are generally used for being the elements of the HidDeviceList and HidDeviceList will be filled with HidApi::scanDevices() function. So users don't need to instantiate HidDevice objects unless they try to get a HidDeviceList element to the local or global variable. It runs a backgroud operation also to read data from device asynchronously and these are stored in the internal FIFO buffer. This operation is managed by HidDevice class and users are not responsible for managing it. This background operation starts when device opened and finishes when device closed. It has got these functions:
 
 - open()
@@ -75,12 +75,12 @@ HidDevice class is the interface for interacting with HIDs. Users should not ins
 > - If any error occured, the callback function which registered with HidApi::registerDeviceErrorCallback() function will be called.
 
 ----------
-#### **HidDeviceReaderThread ** class
+#### **HidDeviceReaderThread** class
 HidDeviceReaderThread is a class which executes a background operation to read data from device asynchronously and these are stored in the internal FIFO buffer.  This operation is managed by HidDevice class and users are not responsible for managing it. This background operation starts when device opened and finishes when device closed. Its behaviour is different on Windows and Linux.
 
 ----------
 
-### **Dependencies **
+### **Dependencies**
 The C++11 support is necessery for both Windows and Linux based systems.
 
 On Windows OS, the library uses **setupapi**, so the "**-lsetupapi**" linker flag must be added to linker librariers.
@@ -93,7 +93,7 @@ And the "**-lpthread**" and "**-ludev**" linker flags must be added to linker li
 
 ----------
 
-### **USAGE **
+### **USAGE**
 
 This library is header-only so you must just include the HidApi.h file to your code. That's it.
 ```c++
